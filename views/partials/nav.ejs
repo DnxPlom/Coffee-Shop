@@ -1,0 +1,12 @@
+<nav>
+    <div class="logo">DND RIM</div>
+    <ul id="navbar" class="nav" tabindex="1">
+        <li><a href="/" class="<%- data.pageLink==='home' ? 'active':'' %>">Home</a></li>
+        <li><a href="/blog" class="<%- data.pageLink==='blog' ? 'active':'' %>">Blog</a></li>
+        <li><a href="/login" class="<%- data.pageLink==='login' ? 'active':'' %>">Login</a></li>
+        <li><a href="/signup" class="<%- data.pageLink==='signup' ? 'active':'' %>">Sign Up</a></li>
+    </ul>
+    <div id="togglebtn" class="toggle-btn">
+        <a></a><a class="shorter"></a><a></a>
+    </div>
+</nav>

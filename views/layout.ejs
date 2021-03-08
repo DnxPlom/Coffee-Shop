@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <%- include("partials/head")%>
+</head>
+<body>
+    <%- include("partials/nav")%>
+    <% if (message) { %>
+        <div id="message" class="<%- error%>">
+            <%- message %>
+        </div>
+    <% } %>
+    <a href="#" id="themechanger">B/W Theme</a>
+    <%- content -%>
+    <%- include("partials/footer")%>
+    
+</body>
+<script src="/static/js/main.js"></script>
+<script>
+    const navbar = document.querySelector("nav")
+    const nav = document.getElementById("navbar")
+    const changeTheme = document.getElementById("themechanger");
+    const body = document.querySelector("body")
+
+    let state = "original"
+
+    changeTheme.addEventListener("click", () => {
+        if (state==="bw") {
+            changeTheme.innerHTML = "Original Theme"
+            body.style.background = "linear-gradient(90deg,rgb(35, 67, 114)10px, rgb(151, 52, 6)100%)"
+            state = "original"
+            return
+        } else {
+            changeTheme.innerHTML = "Original Theme"
+            body.style.background = "linear-gradient(90deg, black 10px, white 100%)"
+            state = "bw"
+            return
+        }
+    })
+
+    window.addEventListener("scroll", () => {
+        ////window.scrollY
+        if (document.body.scrollTop >= 75 || document.documentElement.scrollTop >= 75 || window.scrollY >= 75){
+            navbar.style.background = "linear-gradient(90deg,rgb(35, 67, 114)10px, rgb(151, 52, 6)100%)"
+        } else {
+            navbar.style.background = 'none'
+        }
+    });
+
+    document.getElementById("togglebtn").addEventListener("click", (e) => {
+        nav.classList.toggle("open");
+    });
+
+    document.addEventListener("blur", () => {
+        
+    })
+
+    const messageDiv = document.getElementById("message");
+
+    if (messageDiv) {
+        setTimeout(() => {
+            messageDiv.style.display = "none"
+        }, 10000)
+    }
+    
+</script>
+</body>
+</html>

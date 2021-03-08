@@ -1,0 +1,19 @@
+<%- extend("layout") -%>
+
+<form action="/signup" method="POST">
+    <label for="username">Username</label><br />
+    <input required type="text" placeholder="Username" name="username"><br />
+    <label for="email">E-mail</label><br />
+    <input required type="email" placeholder="E-mail" name="email"><br />
+    <label for="contact">Phone Contact</label><br />
+    <input required type="text" placeholder="Contact" name="contact"><br />
+    <label for="password1">Password</label><br />
+    <input required type="password" placeholder="Password" name="password1"><br />
+    <label for="password2">Confirm Password</label><br />
+    <input required type="password" placeholder="Confirm Password" name="password2"><br />
+
+    <button type="submit">Sign Up</button>
+
+    <p>Already have an account? <a href="/login" class="login">Login</a></p>
+
+</form>

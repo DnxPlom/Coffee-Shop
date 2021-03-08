@@ -1,0 +1,56 @@
+<%- extend("layout") -%>
+
+    <h1><%- data.welcome_tag %></h1>
+    <div class="clock">
+        <div class="hands">
+            <div class="hour"></div>
+            <div class="min"></div>
+            <div class="sec"></div>
+        </div>
+        
+    </div>
+    <h2>Coming Soon</h2>
+    <p class="date"></p>
+
+    <div class="bouncing">
+        <div class="ball"></div>
+    </div>
+ 
+    <script>const hour = document.querySelector('.hour')
+        const min = document.querySelector('.min')
+        const sec = document.querySelector('.sec')
+        
+        var time, hours, mins, secs, milli
+        
+        setInterval(
+            () => {
+                time = new Date()
+                milli = time.getMilliseconds()
+                secs = time.getSeconds()
+                mins = time.getMinutes()
+                hours = time.getHours()
+        
+                sec.style.transform = `rotate(${secs*6}deg)`
+                min.style.transform = `rotate(${mins*6}deg)`
+                hour.style.transform = `rotate(${hours*30 + mins*0.5}deg)`
+        }, 1000)
+        
+        //////Date
+        var date = new Date()
+        const dateSection = document.querySelector('.date')
+        dateSection.innerHTML = date.toDateString()
+        
+        
+        
+        const ball = document.querySelector('.ball')
+        
+        const path = ['0', '-15px', '-29px', '-42px', '-54px', '-65px', '-75px', '-84px', '-92px', '-99px','-105px', '-99px', '-92px', '-84px', '-75px', '-65px', '-54px', '-42px', '-29px','-15px', '0' ]
+        
+        var x = 0
+        setInterval(
+            () => {
+                ball.style.transform = `translateY(${path[x]})`
+                x += 1
+                if (x > 20) x = 0
+        }, 100)
+        </script>
