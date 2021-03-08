@@ -1,0 +1,152 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+body {
+    margin-top: 90px;
+    min-height: 400px;
+    min-width: 288px;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    transition: 1s ease;
+    background: linear-gradient(90deg, #234372 10px, #973406 100%);
+}
+
+h1, h2, h3, h4, h5 { text-align: center; }
+
+a {
+    text-decoration: none;
+    text-align: center;
+}
+
+label {
+    color: white;
+    margin-top: 10px;
+    text-align: center;
+    font-size: 10px;
+    font-style: italic;
+    letter-spacing: 3px;
+}
+
+input {
+    margin-left: 20px;
+    margin-right: 20px;
+    width: 240px;
+    height: 40px;
+    outline: none;
+    border: none;
+    text-align: center;
+    background: black;
+    color: goldenrod;
+    transition: .5s ease;
+}
+
+input:focus {
+    background: rgb(44, 42, 39);
+}
+
+form {
+    margin-top: 30px;
+    display: flex;
+    flex-direction: column;
+    align-content: center;
+    justify-content: center;
+    box-shadow: 0 0 20px 2px black;
+    background: linear-gradient(rgb(16, 37, 65), rgb(94, 19, 19));
+}
+
+form input:hover {
+    background: rgb(9, 31, 9);
+}
+
+form button {
+    height: 30px;
+    width: auto;
+    outline: none;
+    border: 1px solid green;
+    margin: 20px;
+    overflow: hidden;
+}
+
+form button:hover {
+    background: darkgreen;
+}
+
+form p {
+    text-align: center;
+    margin-bottom: 10px;
+}
+
+form a {
+    text-decoration: none;
+}
+
+#themechanger {
+    position: fixed;
+    right: 0;
+    top: 50px;
+    height: 40px;
+    width: 70px;
+    background: rgba(48, 15, 15, 0.5);
+    border-top: 5px solid crimson;
+    border-bottom: 1px solid black;
+    font-size: 12px;
+    text-align: center;
+    line-height: 18px;
+    color: black;
+}
+
+#themechanger:hover {
+    background: rgba(100, 100, 100, 0.5);
+}
+
+.create-account, .login {
+    color: white;
+    font-size: 18px;
+    border-bottom: 2px solid none;
+}
+.create-account:hover, .login:hover { border-bottom: 2px solid green;}
+
+.forgot-password {
+    color: red;
+    font-size: 15px;
+}
+.forgot-password:hover {color: green;}
+
+button {
+    color: white;
+    background: none;
+    border-radius: 3px;
+    transition: 1s ease;
+}
+
+h2 {
+    font-family: "Times New Roman", Times, serif;
+    letter-spacing: 1px;
+    word-spacing: 6px;
+    font-weight: 700;
+    text-decoration: overline rgb(68, 68, 68);
+    font-style: italic;
+    font-variant: small-caps;
+    color: goldenrod;
+    font-size: 23px;
+    letter-spacing: 4px;
+}
+
+#message {
+    position: absolute;
+    top: 31px;
+    width: 100%;
+    height: 30px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.true { background: crimson; }
+
+.false { background: green; }
