@@ -25,5 +25,5 @@ const authRouter = require("./routes/authentication")
 app.use(router)
 app.use(authRouter)
 
-const PORT = 8000
+const PORT = process.env.PORT || 8000
 app.listen(PORT, console.log(`Running at port ${PORT}`))
