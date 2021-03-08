@@ -1,15 +1,7 @@
 const express = require("express");
-const mongoose = require("mongoose");
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
-
-const UserModel = mongoose.model("User")
-
 const router = express.Router()
 
 const context = require("../context/main.json");
-
-
 
 router.get('/signup', (req, res) => {
     context.pageLink = 'signup'
@@ -47,7 +39,7 @@ router.post('/signup', async (req, res) => {
             error: true
         })
     } else {
-        const response = await UserModel.findOne({ email: email })
+        const response = "USER"
         if (response) {
             return res.render('signup', {
                 data: context,
@@ -56,17 +48,10 @@ router.post('/signup', async (req, res) => {
                 error: true
             })
         } else {
-            const password = await bcrypt.hash(password1, 10)
-            UserModel.create({
-                username,
-                email,
-                contact,
-                password
-            })
-            
+            const password = "Mundane"
             return res.render('signup', {
                 data: context,
-                message: "success",
+                message: "User created",
                 error: false
             })
         }
@@ -88,15 +73,15 @@ router.post('/login', authCheck, async (req, res) => {
     context.pageLink = 'login'
     var { email, password } = req.body
 
-    const user = await UserModel.findOne({email: email})
+    const user = "USER"
 
     if (!user) {
-        return res.send(JSON.stringify({
+        return res.render({
             data: context,
             logininfo: req.body,
             message: "User does not exist",
             error: true
-        }))
+        })
     }
 
     if (password == null || password == undefined || password =="") {
@@ -108,7 +93,7 @@ router.post('/login', authCheck, async (req, res) => {
         })
     } else {
     
-        const response = await bcrypt.compare(password, user.password)
+        const response = "Mundane"
         if (response) {
             console.log("Login Successful")
             return res.redirect("/")

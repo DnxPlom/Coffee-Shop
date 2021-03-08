@@ -2,16 +2,18 @@
   "name": "coffee-house",
   "version": "1.0.0",
   "description": "",
-  "main": "server.js",
+  "main": "app.js",
   "dependencies": {
+    "bcrypt": "^5.0.1",
     "express": "^4.17.1",
-    "mongoose": "^5.11.19",
+    "express-ejs-extend": "0.0.1",
     "nodemon": "^2.0.7"
   },
   "devDependencies": {},
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon app.js"
+    "start": "node app.js",
+    "devStart": "nodemon app.js"
   },
   "author": "",
   "license": "ISC"

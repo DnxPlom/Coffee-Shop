@@ -1,7 +1,15 @@
 const express = require("express");
 const path = require("path");
+const MongoClient = require('mongodb').MongoClient;
 
-const dbconnection = require("./models")
+const uri = "mongodb+srv://dantuwei:Controldata1@cluster0.pteyb.mongodb.net/cofeeshop?retryWrites=true&w=majority";
+const client = new MongoClient(uri, { useNewUrlParser: true, useUnifiedTopology: true });
+client.connect(err => {
+  const collection = client.db("coffeeshop").collection("users");
+  console.log(collection)
+  // perform actions on the collection object
+  client.close();
+});
 
 const app = express()
 
@@ -11,19 +19,11 @@ app.set('view engine', 'ejs')
 app.use(express.urlencoded({extended: true}))
 app.use('/static', express.static(path.join(__dirname, 'static')))
 
-authKick = (req, res, next) => {
-  if (!req.isAuthenticated) {
-      console.log("Not auth")
-  }
-  return next()
-}
-
-app.use(authKick)
 //ROUTER
 const router = require("./routes/main_routes")
 const authRouter = require("./routes/authentication")
 app.use(router)
 app.use(authRouter)
 
-const PORT = process.env.PORT || 8000
-app.listen(PORT, console.log(`Running at port ${PORT}`))
+const PORT = process.env.PORT || 3000
+app.listen(process.env.PORT, '0.0.0.0', console.log(`Running at port ${PORT}`))
